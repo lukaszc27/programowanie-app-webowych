@@ -1,0 +1,51 @@
+body {
+    background-color: #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+    align-self: center;
+}
+
+input[type="text"] {
+    margin: 0;
+    padding: .5em;
+    background-color: white;
+    border: #ccc solid 1px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: green;
+    color: white;
+    border: 0;
+    padding: .5em;
+    border-radius: 5px;
+
+    transition: all .3s;
+}
+
+button:hover {
+    background-color: greenyellow;
+}
+#widgets {
+    align-self: center;
+    display: flex;
+    position: relative;
+    top: 3em;
+    max-width: 90%;
+    flex-wrap: wrap;
+}
+div.card {
+    border: #ccc solid 1px;
+    border-radius: .6em;
+    width: 220px;
+    height: 220px;
+    text-align: center;
+    margin: .5em;
+    background-color: white;
+}
+
+div.card:hover { box-shadow: 0px 0px 12px silver; }
