@@ -1,35 +1,59 @@
 import axios from 'axios'
 
-class Application {
-    constructor() {
-    }
+type InputElement = HTMLElement | HTMLInputElement | null;
 
+class Application {
     /**
      * main function
      */
-    main = () => {
-        this.getWeather('Gorlice');
+    public main = () : void => {
     }
 
-    async getWeather(location : string) {
-        const appId : string = 'aa8b6dc42b70fe9332a39e81c4b28230';
-        const lang : string = 'PL';
-        const request : string = `http://api.openweathermap.org/data/2.5/weather?
-            q=${location}&
-            appid=${appId}&
-            lang=${lang}`;
+    public buttonHandle = () : void => {
+        const input : InputElement | null = document.querySelector('input[id="location"]') as HTMLInputElement;
+        if (input != null) {
+        }
+    }
 
-        // const response = await fetch(request);
-        // const data = response.json();
+    /**
+     * 
+     * @param location pobiera informacje o pogodznie metodą GET
+     * @returns JSON data
+     */
+    private getWeather = (location : string) : any => {
+        const appid = 'aa8b6dc42b70fe9332a39e81c4b28230';
+        const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${appid}&units=metric&lang=PL`;
 
-        axios.get(request)
+        axios.get(url)
         .then((response) => {
-            console.log(response);
+            const data = response.data;
+            console.log(data);
+            
+            return data;
         })
-        .catch ((error) => {
+        .catch((error) => {
             console.log(error);
         })
+
+        return {};
     }
-}
+
+    /**
+     * zapisywanie danych o pogodzie w localStorage
+     * @param data informacje do zapisania
+     */
+    private setData(data : any) : void {
+        localStorage.setItem('weatherData', JSON.stringify(data));
+    }
+
+    /**
+     * 
+     * @returns odczyt zapisanych informacji z localStorage
+     */
+    private getData() : any {
+        const data = localStorage.getItem('weatherData');
+        return data ? JSON.parse(data) : []
+    }
+};
 
 export default Application;

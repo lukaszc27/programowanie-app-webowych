@@ -1,0 +1,81 @@
+html,
+body {
+    margin      : 0;
+    padding     : 0;
+    font-family : Verdana, Geneva, Tahoma, sans-serif;
+    font-size   : 1em;
+
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+}
+
+h1 {
+    text-align: center;
+    font-weight: normal;
+}
+
+$button-size            : 120px;
+$button-color           : #8BC34A;
+$button-outline-color   : #cddc39;
+
+.keyboard {
+    margin-top      : 3em;
+    width           : 65vw;
+    display         : flex;
+    justify-content : space-around;
+
+
+    button {
+        width   : $button-size;
+        height  : $button-size;
+        border  : none;
+        margin  : 0;
+        padding : 0;
+        
+        font-size   : 2.8em;
+        color       : white;
+
+        background-color    : $button-color;
+        transition          : background-color .3s;
+
+        &:hover {
+            background-color: darken($button-color, 10%);
+            // box-shadow: 0px 6px 12px silver;
+        }
+
+        &:focus,
+        &:active {
+            outline: lighten($button-outline-color, 20%) solid .16em;
+        }
+    }
+}
+
+.records {
+    margin-top      : 3em;
+    width           : 65vw;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+
+    span[data-channel] {
+        width               : 100%;
+        flex-direction      : row;
+        display             : flex;
+        justify-content     : center;
+        align-items         : center;
+
+        p { 
+            display         : inline-block;
+            font-size       : .9em;
+            padding         : 2px;
+        }
+
+        button {
+            margin  : 2px;
+            padding : 6px 3px;
+        }
+    }
+}
