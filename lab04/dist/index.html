@@ -11,6 +11,8 @@
 <body>
     <section class="notes">
         <h1>All notes</h1>
+        <div id="container">
+        </div>
     </section>
 
     <section class="noteCreator">
@@ -20,10 +22,10 @@
             <!-- <form> -->
                 <table>
                     <tr>
-                        <td><label for="noteTitle">Tytuł</label></td>
+                        <td><label for="caption">Tytuł</label></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="noteTitle" /></td>
+                        <td><input type="text" name="caption"/></td>
                     </tr>
                     <tr>
                         <td><label for="content">Treść notatki</label></td>
@@ -36,9 +38,15 @@
                     </tr>
                     <tr>
                         <td>
-                            <button class="colorPicker" style="background-color: yellow;"></button>
-                            <button class="colorPicker" style="background-color: greenyellow;"></button>
-                            <button class="colorPicker" style="background-color: indianred;"></button>
+                            <button class="colorPicker" style="background-color: yellow;" data-color="yellow"></button>
+                            <button class="colorPicker" style="background-color: greenyellow;" data-color="greenyellow"></button>
+                            <button class="colorPicker" style="background-color: indianred;" data-color="indianred"></button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button role="button">Dodaj</button>
                         </td>
                     </tr>
                 </table>

@@ -11,17 +11,71 @@ body {
     justify-self: flex-start;
     flex-grow: 2;
     width: 75vw;
-    background-color: red;
+}
+
+.notes h1 {
+    margin-left: 1.5em;
 }
 
 .noteCreator {
     justify-self: flex-end;
     width: 25vw;
+    height: 100vh;
+    background-color: #3d4880;
+    color: #f2f2f2;
 }
 
 .wrapper { padding: 1em; }
+.wrapper input { width: 97%; }
+.wrapper table { width: 100%; }
+.wrapper textarea { 
+    width: 100%;
+    min-height: 250px;
+}
 
 button.colorPicker {
     width: 25px;
     height: 25px;
+    border: 0;
+    transition: all .2s;
+}
+
+button.colorPicker:hover {
+    border: #000 solid 1px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.card {
+    border: #ccc solid 1px;
+    padding: 1em;
+    width: 200px;
+    min-height: 200px;
+    border-radius: 6px;
+    position: relative;
+    transition: all .2s;
+    margin: 1em;
+}
+.orange { background-color: orange; }
+.yellow { background-color: yellow; }
+.greenyellow { background-color: greenyellow; }
+.indianred { background-color: indianred; }
+
+.card:hover {
+    box-shadow: 0px 6px 12px silver;
+}
+
+.card h4 {
+    margin: 0;
+    margin-bottom: .8em;
+    padding: 0;
+}
+
+.card p {
+    margin: 0;
+    padding: 0;
 }
