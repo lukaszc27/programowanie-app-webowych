@@ -1,15 +1,18 @@
 import INote from './INote'
 import LocalNote from './LocalNote'
-import Notes from './Notes';
+import AppStorage from './AppStorage';
+import FirebaseStorage from './FirebaseStorage';
 
 class Application {
     private currentColor : string = 'orange';
+    private notes : AppStorage = new AppStorage();
+    private firebaseStorage : FirebaseStorage = new FirebaseStorage();
 
     /**
      * main function
      */
     public main = (): void => {
-        Notes.render();
+        this.notes.render();
 
         let button : HTMLButtonElement | null = document.querySelector('button[role="button"]');
         if (button != null)
@@ -24,7 +27,9 @@ class Application {
                     this.currentColor = color;
                 }
             })
-        })
+        });
+
+        this.firebaseStorage.getData();
     }
 
     /**
@@ -37,7 +42,7 @@ class Application {
         if (inputCaption != null && inputCaption.value.length > 0 &&
             inputContent != null && inputContent.value.length > 0) {
                 let note : LocalNote = new LocalNote(inputCaption.value, inputContent.value, this.currentColor);
-                Notes.addNote(note);
+                this.notes.addNote(note);
 
                 inputCaption.value = '';
                 inputContent.value = '';
